@@ -105,9 +105,7 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
     _statusBarBackgroundView = [[UIView alloc] initWithFrame:frame];
     _statusBarBackgroundView.backgroundColor = [UIColor blackColor];
     _statusBarBackgroundView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin);
-    
-    [self styleLightContent:nil]; // match default backgroundColor of #000000
-    
+
     NSString* setting;
     
     setting  = @"StatusBarOverlaysWebView";
