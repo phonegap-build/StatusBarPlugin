@@ -11,8 +11,6 @@ Methods
 - StatusBar.overlaysWebView
 - StatusBar.styleDefault
 - StatusBar.styleLightContent
-- StatusBar.styleBlackTranslucent
-- StatusBar.styleBlackOpaque
 - StatusBar.backgroundColorByName
 - StatusBar.backgroundColorByHexString
 - StatusBar.hide
@@ -26,11 +24,15 @@ Properties
 Permissions
 -----------
 
-#### config.xml
+#### config.xml if building locally
 
             <feature name="StatusBar">
                 <param name="ios-package" value="CDVStatusBar" onload="true" />
             </feature>
+            
+#### config.xml if using PhoneGap Build
+
+            <gap:plugin name="com.phonegap.plugin.statusbar" />
 
 StatusBar.overlaysWebView
 =================
@@ -75,32 +77,6 @@ StatusBar.styleLightContent
 Use the lightContent statusbar (light text, for dark backgrounds).
 
     StatusBar.styleLightContent();
-
-
-Supported Platforms
--------------------
-
-- iOS
-
-StatusBar.styleBlackTranslucent
-=================
-
-Use the blackTranslucent statusbar (light text, for dark backgrounds).
-
-    StatusBar.styleBlackTranslucent();
-
-
-Supported Platforms
--------------------
-
-- iOS
-
-StatusBar.styleBlackOpaque
-=================
-
-Use the blackOpaque statusbar (light text, for dark backgrounds).
-
-    StatusBar.styleBlackOpaque();
 
 
 Supported Platforms
