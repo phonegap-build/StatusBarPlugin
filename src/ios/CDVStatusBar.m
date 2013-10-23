@@ -97,11 +97,13 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
     [[UIApplication sharedApplication] addObserver:self forKeyPath:@"statusBarHidden" options:NSKeyValueObservingOptionNew context:NULL];
     
     _statusBarOverlaysWebView = YES; // default
+    [self setStatusBarOverlaysWebView:NO];
     
     CGRect frame = [[UIApplication sharedApplication] statusBarFrame];
     
     _statusBarBackgroundView = [[UIView alloc] initWithFrame:frame];
     _statusBarBackgroundView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin);
+    [self.webView.superview addSubview:_statusBarBackgroundView];
 }
 
 - (void) _ready:(CDVInvokedUrlCommand*)command
