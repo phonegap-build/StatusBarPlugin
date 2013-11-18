@@ -97,7 +97,12 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
     [[UIApplication sharedApplication] addObserver:self forKeyPath:@"statusBarHidden" options:NSKeyValueObservingOptionNew context:NULL];
     
     _statusBarOverlaysWebView = YES; // default
-    [self setStatusBarOverlaysWebView:NO];
+    
+    NSString            *systemVersion = [[UIDevice currentDevice] systemVersion];
+    NSComparisonResult  order = [[systemVersion substringToIndex:[@"7.0" length]] compare: @"7.0" options: NSNumericSearch];
+    
+	if (order == NSOrderedSame || order == NSOrderedDescending)
+        [self setStatusBarOverlaysWebView:NO];
     
     CGRect frame = [[UIApplication sharedApplication] statusBarFrame];
     
