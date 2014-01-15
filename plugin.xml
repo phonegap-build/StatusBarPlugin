@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.phonegap.plugin.statusbar"
+    id="com.phonegap.plugin.statusbarfix"
     version="1.0.1">
 
     <name>StatusBar</name>
