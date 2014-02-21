@@ -3,7 +3,33 @@ StatusBar
 
 > The `StatusBar` object provides some functions to customize the iOS StatusBar.
 
-The plugin reads the __StatusBarOverlaysWebView__ (boolean, defaults to true) and __StatusBarBackgroundColor__ (color hex string, defaults to #000000) values from config.xml.
+
+Preferences
+-----------
+
+#### config.xml
+
+-  __StatusBarOverlaysWebView__ (boolean, defaults to true). On iOS 7, make the statusbar overlay or not overlay the WebView at startup.
+
+        <preference name="StatusBarOverlaysWebView" value="true" />
+            
+- __StatusBarBackgroundColor__ (color hex string, defaults to #000000). On iOS 7, set the background color of the statusbar by a hex string (#RRGGBB) at startup.
+
+        <preference name="StatusBarBackgroundColor" value="#000000" />
+
+Hiding at startup
+-----------
+
+During runtime you can use the StatusBar.hide function below, but if you want the StatusBar to be hidden at app startup, you must modify your app's Info.plist file.
+
+Add/edit these two attributes if not present. Set **"Status bar is initially hidden"** to **"YES"** and set **"View controller-based status bar appearance"** to **"NO"**. If you edit it manually without Xcode, the keys and values are:
+
+
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+
  
 Methods
 -------
@@ -11,6 +37,8 @@ Methods
 - StatusBar.overlaysWebView
 - StatusBar.styleDefault
 - StatusBar.styleLightContent
+- StatusBar.styleBlackTranslucent
+- StatusBar.styleBlackOpaque
 - StatusBar.backgroundColorByName
 - StatusBar.backgroundColorByHexString
 - StatusBar.hide
@@ -24,15 +52,11 @@ Properties
 Permissions
 -----------
 
-#### config.xml if building locally
+#### config.xml
 
             <feature name="StatusBar">
                 <param name="ios-package" value="CDVStatusBar" onload="true" />
             </feature>
-            
-#### config.xml if using PhoneGap Build
-
-            <gap:plugin name="com.phonegap.plugin.statusbar" />
 
 StatusBar.overlaysWebView
 =================
@@ -77,6 +101,32 @@ StatusBar.styleLightContent
 Use the lightContent statusbar (light text, for dark backgrounds).
 
     StatusBar.styleLightContent();
+
+
+Supported Platforms
+-------------------
+
+- iOS
+
+StatusBar.styleBlackTranslucent
+=================
+
+Use the blackTranslucent statusbar (light text, for dark backgrounds).
+
+    StatusBar.styleBlackTranslucent();
+
+
+Supported Platforms
+-------------------
+
+- iOS
+
+StatusBar.styleBlackOpaque
+=================
+
+Use the blackOpaque statusbar (light text, for dark backgrounds).
+
+    StatusBar.styleBlackOpaque();
 
 
 Supported Platforms
