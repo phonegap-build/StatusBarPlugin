@@ -41,6 +41,14 @@ StatusBar.styleLightContent = function() {
     exec(null, null, "StatusBar", "styleLightContent", []);
 };
 
+StatusBar.styleBlackTranslucent = function() {
+    exec(null, null, "StatusBar", "styleBlackTranslucent", []);
+};
+
+StatusBar.styleBlackOpaque = function() {
+    exec(null, null, "StatusBar", "styleBlackOpaque", []);
+};
+
 StatusBar.backgroundColorByName = function(colorname) {
     exec(null, null, "StatusBar", "backgroundColorByName", [colorname]);
 }
