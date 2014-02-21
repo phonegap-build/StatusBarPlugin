@@ -3,19 +3,30 @@ StatusBar
 
 > The `StatusBar` object provides some functions to customize the iOS StatusBar.
 
+PhoneGap Build
+--------------
+To include the StatusBar plugin in your PhoneGap Build application, add this to your config.xml:
+
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
+
 
 Preferences
 -----------
+
+__These launch preferences not yet supported by PhoneGap Build__
 
 #### config.xml
 
 -  __StatusBarOverlaysWebView__ (boolean, defaults to true). On iOS 7, make the statusbar overlay or not overlay the WebView at startup.
 
         <preference name="StatusBarOverlaysWebView" value="true" />
+
             
 - __StatusBarBackgroundColor__ (color hex string, defaults to #000000). On iOS 7, set the background color of the statusbar by a hex string (#RRGGBB) at startup.
 
         <preference name="StatusBarBackgroundColor" value="#000000" />
+
+
 
 Hiding at startup
 -----------
@@ -29,6 +40,16 @@ Add/edit these two attributes if not present. Set **"Status bar is initially hid
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+
+On PhoneGap Build this can be done by adding the following to your config.xml:
+
+    <gap:config-file platform="ios" parent="UIStatusBarHidden">
+        <true/>
+    </gap:config-file>
+
+    <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
+        <false/>
+    </gap:config-file>
 
  
 Methods
