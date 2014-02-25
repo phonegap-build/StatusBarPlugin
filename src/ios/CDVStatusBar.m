@@ -150,7 +150,11 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
     if (statusBarOverlaysWebView) {
         
         [_statusBarBackgroundView removeFromSuperview];
-        self.webView.frame = bounds;
+        if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation)) {
+            self.webView.frame = CGRectMake(0, 0, bounds.size.height, bounds.size.width);
+        } else {
+            self.webView.frame = bounds;
+        }
 
     } else {
 
