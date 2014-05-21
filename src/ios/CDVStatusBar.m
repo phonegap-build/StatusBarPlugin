@@ -126,7 +126,7 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
 
 - (void) initializeStatusBarBackgroundView 
 {
-    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    CGRect statusBarFrame = (CGRect){ CGPointZero, [UIApplication sharedApplication].statusBarFrame.size };
     if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation)) {
         // swap width and height. set origin to zero
         statusBarFrame = CGRectMake(0, 0, statusBarFrame.size.height, statusBarFrame.size.width);
