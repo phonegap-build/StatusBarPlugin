@@ -127,7 +127,7 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
 - (void) initializeStatusBarBackgroundView 
 {
     CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-    if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation)) {
+    if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation) && !IsAtLeastiOSVersion(@"8.0") ) {
         // swap width and height. set origin to zero
         statusBarFrame = CGRectMake(0, 0, statusBarFrame.size.height, statusBarFrame.size.width);
     }
@@ -150,7 +150,7 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
     if (statusBarOverlaysWebView) {
         
         [_statusBarBackgroundView removeFromSuperview];
-        if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation)) {
+        if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation) && !IsAtLeastiOSVersion(@"8.0")) {
             self.webView.frame = CGRectMake(0, 0, bounds.size.height, bounds.size.width);
         } else {
             self.webView.frame = bounds;
@@ -164,7 +164,7 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
 
         CGRect frame = self.webView.frame;
 
-        if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation)) {
+        if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation) && !IsAtLeastiOSVersion(@"8.0")) {
             frame.origin.y = statusBarFrame.size.width;
             frame.size.height -= statusBarFrame.size.width;
         } else {
@@ -324,7 +324,7 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
             CGRect frame = self.webView.frame;
             frame.origin.y = 0;
         
-            if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation)) {
+            if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation) && !IsAtLeastiOSVersion(@"8.0")) {
                 frame.size.height += statusBarFrame.size.width;
             } else {
                 frame.size.height += statusBarFrame.size.height;
@@ -374,7 +374,7 @@ static const void *kStatusBarStyle = &kStatusBarStyle;
                 // statusBar's current size
                 CGRect sbBgFrame = _statusBarBackgroundView.frame;
                 
-                if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation)) {
+                if (UIDeviceOrientationIsLandscape(self.viewController.interfaceOrientation) && !IsAtLeastiOSVersion(@"8.0")) {
                     frame.origin.y = statusBarFrame.size.width;
                     frame.size.height -= statusBarFrame.size.width;
                     sbBgFrame.size = CGSizeMake(statusBarFrame.size.height, statusBarFrame.size.width);
